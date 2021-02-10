@@ -1,3 +1,26 @@
+body {
+	font-family: 'Abel', sans-serif;
+	// background: black;
+	// color: white;
+}
+
+.score-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 40vh;
+
+	#score {
+		font-size: 3rem;
+	}
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .grid {
 	position: absolute;
 	width: 560px;
