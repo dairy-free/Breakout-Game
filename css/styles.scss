@@ -1,7 +1,7 @@
 body {
 	font-family: 'Abel', sans-serif;
-	// background: black;
-	// color: white;
+	background-color: black;
+	color: white;
 }
 
 .score-container {
@@ -25,8 +25,42 @@ body {
 	position: absolute;
 	width: 560px;
 	height: 300px;
-	border: solid black 1px;
 	margin-top: 80px;
+}
+
+@keyframes backgroundColorPalette {
+	0% {
+		background: #ee6055;
+	}
+	25% {
+		background: #60d394;
+	}
+	50% {
+		background: #aaf683;
+	}
+	75% {
+		background: #ffd97d;
+	}
+	100% {
+		background: #ff9b85;
+	}
+}
+@keyframes ballBackgroundColorPalette {
+	0% {
+		background: #aaf683;
+	}
+	25% {
+		background: #ee6055;
+	}
+	50% {
+		background: #ff9b85;
+	}
+	75% {
+		background: #60d394;
+	}
+	100% {
+		background: #ffd97d;
+	}
 }
 
 .block {
@@ -34,20 +68,48 @@ body {
 	position: absolute;
 	width: 100px;
 	height: 20px;
-	background-color: blue;
+	animation-name: backgroundColorPalette;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear;
 }
 
 .player-block {
 	position: absolute;
 	width: 100px;
 	height: 20px;
-	background-color: purple;
+	animation-name: backgroundColorPalette;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear;
 }
 
 .ball {
 	width: 20px;
 	height: 20px;
 	border-radius: 10px;
-	background-color: red;
 	position: absolute;
+	animation-name: ballBackgroundColorPalette;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear;
+}
+
+.button-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 350px;
+
+	.btn-secondary {
+		background-color: #282828;
+		margin: 0 1rem 0;
+		width: 250px;
+	}
+
+	.btn-secondary:hover {
+		background-color: #383838;
+	}
 }

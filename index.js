@@ -1,5 +1,6 @@
 const grid = document.querySelector('.grid');
 const scoreDisplay = document.getElementById('score');
+const gameBtn = document.getElementById('gameBtn');
 const blockWidth = 100;
 const blockHeight = 20;
 const ballDiameter = 20;
@@ -9,6 +10,8 @@ let timerId
 let xDirection = -2;
 let yDirection = 2;
 let score = 0;
+
+console.log(gameBtn)
 
 const playerStart = [230, 10]
 let currentPosition = playerStart;
