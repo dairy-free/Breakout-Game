@@ -19,6 +19,26 @@ let currentPosition = playerStart;
 const ballStart = [270, 40]
 let ballCurrentPosition = ballStart;
 
+gameBtn.addEventListener('click', startGame);
+
+// Start game 
+function startGame() {
+  if(gameBtn.innerHTML === 'Start Game') {
+    timerId = setInterval(moveBall, 20)
+    gameBtn.innerHTML = 'Reset Game';
+    console.log('start')
+  } else {
+    clearInterval(timerId)
+    addBlocks();
+    ballPosition();
+    moveBall();
+    // timerId = setInterval(moveBall, 20)
+    console.log('reset')
+  }
+}
+
+
+
 // Create Block
 class Block {// Gives positioning on where the blocks are
   constructor(xAxis, yAxis){
@@ -52,8 +72,6 @@ const blocks =[
   new Block(450,210),
 ]
 
-console.log(blocks[0])
-
 // Draw All Blocks
 function addBlocks(){
   for (let i = 0; i < blocks.length; i++){
@@ -65,7 +83,7 @@ function addBlocks(){
   }
 }
 
-addBlocks();
+addBlocks()
 
 // Create User
 const playerBlock = document.createElement('div');
@@ -123,7 +141,7 @@ function moveBall() {
   collisionCheck()
 }
 
-timerId = setInterval(moveBall, 30)
+// timerId = setInterval(moveBall, 30)
 
 // Collision Check
 
