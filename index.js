@@ -29,14 +29,13 @@ function startGame() {
     console.log('start')
   } else {
     clearInterval(timerId)
-    addBlocks();
-    ballPosition();
-    moveBall();
+    // addBlocks();
+    // ballPosition();
+    // moveBall();
     // timerId = setInterval(moveBall, 20)
     console.log('reset')
   }
 }
-
 
 
 // Create Block
@@ -71,6 +70,19 @@ const blocks =[
   new Block(340,210),
   new Block(450,210),
 ]
+
+// Clear Blocks
+blocks.forEach(block => {
+  console.log('test')
+  blocks.splice(block, 15)
+})
+
+// function clearBlocks(block) {
+//   blocks.splice(block, 15)
+// }
+
+
+
 
 // Draw All Blocks
 function addBlocks(){
