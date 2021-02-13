@@ -1,6 +1,7 @@
 const grid = document.querySelector('.grid');
 const scoreDisplay = document.getElementById('score');
-const gameBtn = document.getElementById('gameBtn');
+const startBtn = document.getElementById('startBtn');
+const resetBtn = document.getElementById('resetBtn');
 const blockWidth = 100;
 const blockHeight = 20;
 const ballDiameter = 20;
@@ -11,7 +12,7 @@ let xDirection = -2;
 let yDirection = 2;
 let score = 0;
 
-console.log(gameBtn)
+console.log(startBtn, resetBtn)
 
 const playerStart = [230, 10]
 let currentPosition = playerStart;
@@ -19,24 +20,8 @@ let currentPosition = playerStart;
 const ballStart = [270, 40]
 let ballCurrentPosition = ballStart;
 
-gameBtn.addEventListener('click', startGame);
-
-// Start game 
-function startGame() {
-  if(gameBtn.innerHTML === 'Start Game') {
-    timerId = setInterval(moveBall, 20)
-    gameBtn.innerHTML = 'Reset Game';
-    console.log('start')
-  } else {
-    clearInterval(timerId)
-    // addBlocks();
-    // ballPosition();
-    // moveBall();
-    // timerId = setInterval(moveBall, 20)
-    console.log('reset')
-  }
-}
-
+startBtn.addEventListener('click', startGame);
+resetBtn.addEventListener('click', resetGame);
 
 // Create Block
 class Block {// Gives positioning on where the blocks are
@@ -71,15 +56,17 @@ const blocks =[
   new Block(450,210),
 ]
 
-// Clear Blocks
-blocks.forEach(block => {
-  console.log('test')
-  blocks.splice(block, 15)
-})
+// Start game 
+function startGame() {
+  timerId = setInterval(moveBall, 20)
+  console.log('start')
+}
 
-// function clearBlocks(block) {
-//   blocks.splice(block, 15)
-// }
+function resetGame() {
+  location.reload()
+}
+
+
 
 
 
