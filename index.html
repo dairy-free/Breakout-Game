@@ -12,15 +12,21 @@
 </head>
 <body>
   <header class="score-container">
-    <div id="score">0</div>
+    <div id="score" class="show-element">0</div>
   </header>
   <section class="container">
     <div class="game-over-container game-over-hide">
-      <h1 class="game-over-message">Game Over</h1>
-      <!-- <h1 class="continue-message">Continue?</h1> -->
-      <!-- <h1 class="countdown-timer">5</h1> -->
+      <h1 class="game-over-message hide-element">Game Over</h1>
+      <h1 class="countdown-timer hide-element">5</h1>
+      <div class="continue-selection">
+        <button type="button" class="btn btn-secondary btn-lg hide-element">Yes</button>
+        <button type="button" class="btn btn-secondary btn-lg hide-element">No</button>
+      </div>
+      
+      
+      
     </div>
-    <div class="grid hide-element">
+    <div class="grid show-element">
     </div>
   </section>
   <footer class="button-container">

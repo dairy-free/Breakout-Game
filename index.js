@@ -1,6 +1,12 @@
 const grid = document.querySelector('.grid');
 const scoreDisplay = document.getElementById('score');
 const startBtn = document.getElementById('startBtn');
+const gameOverMsg = document.getElementsByClassName('game-over-message')[0]
+const countDownTimer = document.getElementsByClassName('countdown-timer')[0]
+const yesBtn = document.getElementsByClassName('btn-secondary')[0]
+const noBtn = document.getElementsByClassName('btn-secondary')[1]
+
+
 // const resetBtn = document.getElementById('resetBtn');
 const blockWidth = 100;
 const blockHeight = 20;
@@ -21,7 +27,7 @@ const ballStart = [270, 40]
 let ballCurrentPosition = ballStart;
 
 startBtn.addEventListener('click', startGame);
-// resetBtn.addEventListener('click', resetGame);
+yesBtn.addEventListener('click', resetGame)
 
 // Create Block
 class Block {// Gives positioning on where the blocks are
@@ -196,7 +202,12 @@ function collisionCheck() {
   // Game over Check
   if (ballCurrentPosition[1] <= 0) {
     clearInterval(timerId);
-    scoreDisplay.innerHTML = "Game Over"
+    scoreDisplay.classList.toggle('hide-element')
+    grid.classList.toggle('hide-element')
+    gameOverMsg.classList.toggle('hide-element')
+    countDownTimer.classList.toggle('hide-element')
+    yesBtn.classList.toggle('hide-element')
+    noBtn.classList.toggle('hide-element')
     document.removeEventListener('keydown', movePlayer)
   }
 }

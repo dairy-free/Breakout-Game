@@ -31,7 +31,6 @@ body {
 
 .game-over-container {
 	position: fixed;
-	// top: 400px;
 
 	.game-over-message {
 		font-size: 150px;
@@ -42,8 +41,23 @@ body {
 	}
 
 	.countdown-timer {
+		font-size: 100px;
 		margin: 0 auto;
 		width: 50px;
+	}
+}
+
+.continue-selection {
+	display: flex;
+	justify-content: center;
+	padding-top: 2rem;
+
+	button {
+		background-color: #282828;
+		margin: 0 2rem;
+		width: 90px;
+		height: 80px;
+		border-radius: 50%;
 	}
 }
 

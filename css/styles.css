@@ -58,8 +58,27 @@ body {
 }
 
 .game-over-container .countdown-timer {
+  font-size: 100px;
   margin: 0 auto;
   width: 50px;
+}
+
+.continue-selection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 2rem;
+}
+
+.continue-selection button {
+  background-color: #282828;
+  margin: 0 2rem;
+  width: 90px;
+  height: 80px;
+  border-radius: 50%;
 }
 
 .show-element {
