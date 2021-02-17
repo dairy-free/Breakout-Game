@@ -4,8 +4,16 @@ body {
 	color: white;
 }
 
+.hide-btn {
+	display: none;
+}
+.show-btn {
+	display: block;
+}
+
 .score-container {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 40vh;
@@ -19,6 +27,31 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.game-over-container {
+	position: fixed;
+	// top: 400px;
+
+	.game-over-message {
+		font-size: 150px;
+	}
+
+	.continue-message {
+		font-size: 65px;
+	}
+
+	.countdown-timer {
+		margin: 0 auto;
+		width: 50px;
+	}
+}
+
+.show-element {
+	visibility: visible;
+}
+.hide-element {
+	visibility: hidden;
 }
 
 .grid {
