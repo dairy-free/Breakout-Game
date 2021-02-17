@@ -5,6 +5,8 @@ const gameOverMsg = document.getElementsByClassName('game-over-message')[0]
 const countDownTimer = document.getElementsByClassName('countdown-timer')[0]
 const yesBtn = document.getElementsByClassName('btn-secondary')[0]
 const noBtn = document.getElementsByClassName('btn-secondary')[1]
+const continueMsg = document.getElementsByClassName('game-over-message')[0]
+
 
 
 // const resetBtn = document.getElementById('resetBtn');
@@ -28,6 +30,7 @@ let ballCurrentPosition = ballStart;
 
 startBtn.addEventListener('click', startGame);
 yesBtn.addEventListener('click', resetGame)
+noBtn.addEventListener('click', gameOverScreen)
 
 // Create Block
 class Block {// Gives positioning on where the blocks are
@@ -74,9 +77,19 @@ function resetGame() {
   location.reload()
 }
 
-function gameOverTimeOut() {
-
+function gameOverScreen(){
+  alert('Game Over')
 }
+
+function changeGameOverMsg(){
+  continueMsg.innerHTML = 'Continue?'
+  // countDownTimer.innerHTML = `${}`
+}
+
+function gameOverTimeOut() {
+  
+}
+
 
 
 
@@ -208,6 +221,7 @@ function collisionCheck() {
     countDownTimer.classList.toggle('hide-element')
     yesBtn.classList.toggle('hide-element')
     noBtn.classList.toggle('hide-element')
+    setTimeout(changeGameOverMsg, 1000)
     document.removeEventListener('keydown', movePlayer)
   }
 }
