@@ -16,6 +16,7 @@ const ballDiameter = 20;
 const boardHeight = 300;
 const boardWidth = 560;
 let timerId
+let timerSeconds
 let xDirection = -2;
 let yDirection = 2;
 let score = 0;
@@ -78,16 +79,32 @@ function resetGame() {
 }
 
 function gameOverScreen(){
-  alert('Game Over')
+  clearInterval(gameTimer);
+  gameOverMsg.innerHTML = "Game Over";
+  countDownTimer.innerHTML = "";
+  yesBtn.classList.toggle('hide-element')
+  noBtn.classList.toggle('hide-element')
 }
+
+
 
 function changeGameOverMsg(){
-  continueMsg.innerHTML = 'Continue?'
-  // countDownTimer.innerHTML = `${}`
-}
+  gameOverMsg.innerHTML = 'Continue?'
+  let timeleft = 10;
+  let gameTimer = setInterval(gameCountDownTimer,1000);
 
-function gameOverTimeOut() {
-  
+  function gameCountDownTimer(){
+    if(timeleft <= 0){
+      clearInterval(gameTimer);
+      gameOverMsg.innerHTML = "Game Over";
+      countDownTimer.innerHTML = "";
+      yesBtn.classList.toggle('hide-element')
+      noBtn.classList.toggle('hide-element')
+    } else {
+      countDownTimer.innerHTML = timeleft;
+    }
+    timeleft -= 1;
+  }
 }
 
 
