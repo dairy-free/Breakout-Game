@@ -145,10 +145,18 @@ body {
 	animation-timing-function: linear;
 }
 
-.button-container {
+.footer-container {
+	width: 30%;
+	margin: 0 auto;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
-	margin-top: 350px;
+	align-items: center;
+	margin-top: 17rem;
+
+	#startBtn {
+		margin-top: 3rem;
+	}
 
 	.btn-secondary {
 		background-color: #282828;
@@ -158,5 +166,13 @@ body {
 
 	.btn-secondary:hover {
 		background-color: #383838;
+	}
+}
+
+.arrow-keys {
+	h1 {
+		display: flex;
+		justify-content: center;
+		font-size: 2rem;
 	}
 }

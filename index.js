@@ -1,6 +1,7 @@
 const grid = document.querySelector('.grid');
 const scoreDisplay = document.getElementById('score');
 const startBtn = document.getElementById('startBtn');
+const footerContainer = document.getElementsByClassName('footer-container')[0]
 const gameOverMsg = document.getElementsByClassName('game-over-message')[0]
 const countDownTimer = document.getElementsByClassName('countdown-timer')[0]
 const yesBtn = document.getElementsByClassName('btn-secondary')[0]
@@ -68,8 +69,12 @@ const blocks =[
 
 // Start game 
 function startGame() {
-  startBtn.classList.toggle('hide-btn')
-  startBtn.classList.toggle('show-btn')
+  // startBtn.classList.toggle('hide-btn')
+  // startBtn.classList.toggle('show-btn')
+  // arrowKeyInd.classList.toggle('hide-element')
+  footerContainer.classList.toggle('hide-element')
+
+
   timerId = setInterval(moveBall, 20)
   
 }
