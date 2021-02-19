@@ -218,8 +218,23 @@ body {
 }
 
 .footer-container {
-  width: 30%;
-  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-top: 17rem;
+}
+
+.footer-container .arrow-keys {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -227,17 +242,16 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 17rem;
+}
+
+.footer-container .arrow-keys-alt {
+  padding-top: 3rem;
 }
 
 .footer-container #startBtn {
   margin-top: 3rem;
+  padding-left: 3rem;
+  cursor: pointer;
 }
 
 .footer-container .btn-secondary {
@@ -258,5 +272,15 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   font-size: 2rem;
+}
+
+.move-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-right: 12rem;
 }
 /*# sourceMappingURL=styles.css.map */

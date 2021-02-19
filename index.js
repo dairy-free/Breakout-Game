@@ -2,11 +2,13 @@ const grid = document.querySelector('.grid');
 const scoreDisplay = document.getElementById('score');
 const startBtn = document.getElementById('startBtn');
 const footerContainer = document.getElementsByClassName('footer-container')[0]
+const moveContainer = document.getElementsByClassName('move-container')[0]
 const gameOverMsg = document.getElementsByClassName('game-over-message')[0]
 const countDownTimer = document.getElementsByClassName('countdown-timer')[0]
 const yesBtn = document.getElementsByClassName('btn-secondary')[0]
 const noBtn = document.getElementsByClassName('btn-secondary')[1]
 const continueMsg = document.getElementsByClassName('game-over-message')[0]
+
 
 
 
@@ -32,7 +34,7 @@ let ballCurrentPosition = ballStart;
 
 startBtn.addEventListener('click', startGame);
 yesBtn.addEventListener('click', resetGame)
-noBtn.addEventListener('click', gameOverScreen)
+noBtn.addEventListener('click', endGame)
 
 // Create Block
 class Block {// Gives positioning on where the blocks are
@@ -69,49 +71,48 @@ const blocks =[
 
 // Start game 
 function startGame() {
-  // startBtn.classList.toggle('hide-btn')
-  // startBtn.classList.toggle('show-btn')
-  // arrowKeyInd.classList.toggle('hide-element')
   footerContainer.classList.toggle('hide-element')
-
-
+  moveContainer.classList.toggle('hide-element')
   timerId = setInterval(moveBall, 20)
-  
 }
 
 function resetGame() {
   location.reload()
 }
 
-function gameOverScreen(){
+// function gameOverScreen(){
+//   clearInterval(gameTimer);
+//   gameOverMsg.innerHTML = "Game Over";
+//   countDownTimer.innerHTML = "";
+//   yesBtn.classList.toggle('hide-element')
+//   noBtn.classList.toggle('hide-element')
+// }
+
+
+
+function changeGameOverMsg(){
+  gameOverMsg.innerHTML = 'Continue?'
+  let timeLeft = 9;
+  let gameTimer = setInterval(gameCountDownTimer,1000);
+
+
+  function gameCountDownTimer(){
+    if(timeLeft <= 0){
+      endGame(gameTimer)
+    } else {
+      countDownTimer.innerHTML = timeLeft;
+    }
+    timeLeft -= 1;
+  }
+}
+
+function endGame(gameTimer){
   clearInterval(gameTimer);
   gameOverMsg.innerHTML = "Game Over";
   countDownTimer.innerHTML = "";
   yesBtn.classList.toggle('hide-element')
   noBtn.classList.toggle('hide-element')
 }
-
-
-
-function changeGameOverMsg(){
-  gameOverMsg.innerHTML = 'Continue?'
-  let timeleft = 10;
-  let gameTimer = setInterval(gameCountDownTimer,1000);
-
-  function gameCountDownTimer(){
-    if(timeleft <= 0){
-      clearInterval(gameTimer);
-      gameOverMsg.innerHTML = "Game Over";
-      countDownTimer.innerHTML = "";
-      yesBtn.classList.toggle('hide-element')
-      noBtn.classList.toggle('hide-element')
-    } else {
-      countDownTimer.innerHTML = timeleft;
-    }
-    timeleft -= 1;
-  }
-}
-
 
 
 
