@@ -80,16 +80,6 @@ function resetGame() {
   location.reload()
 }
 
-// function gameOverScreen(){
-//   clearInterval(gameTimer);
-//   gameOverMsg.innerHTML = "Game Over";
-//   countDownTimer.innerHTML = "";
-//   yesBtn.classList.toggle('hide-element')
-//   noBtn.classList.toggle('hide-element')
-// }
-
-
-
 function changeGameOverMsg(){
   gameOverMsg.innerHTML = 'Continue?'
   let timeLeft = 9;
@@ -98,7 +88,11 @@ function changeGameOverMsg(){
 
   function gameCountDownTimer(){
     if(timeLeft <= 0){
-      endGame(gameTimer)
+      clearInterval(gameTimer);
+      gameOverMsg.innerHTML = "Game Over";
+      countDownTimer.classList.add('hide-element')
+      yesBtn.classList.add('hide-element')
+      noBtn.classList.add('hide-element')
     } else {
       countDownTimer.innerHTML = timeLeft;
     }
@@ -109,15 +103,10 @@ function changeGameOverMsg(){
 function endGame(gameTimer){
   clearInterval(gameTimer);
   gameOverMsg.innerHTML = "Game Over";
-  countDownTimer.innerHTML = "";
+  countDownTimer.classList.toggle('hide-element')
   yesBtn.classList.toggle('hide-element')
   noBtn.classList.toggle('hide-element')
 }
-
-
-
-
-
 
 // Draw All Blocks
 function addBlocks(){
