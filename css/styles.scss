@@ -61,6 +61,27 @@ body {
 	}
 }
 
+.win-screen {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	position: absolute;
+	top: 170px;
+	left: 600px;
+
+	.h1-win {
+		font-size: 150px;
+		margin-bottom: 150px;
+	}
+
+	.fa-redo-alt {
+		font-size: 100px;
+		margin-right: 55px;
+		cursor: pointer;
+	}
+}
+
 .show-element {
 	visibility: visible;
 }

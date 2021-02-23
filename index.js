@@ -8,6 +8,11 @@ const countDownTimer = document.getElementsByClassName('countdown-timer')[0]
 const yesBtn = document.getElementsByClassName('btn-secondary')[0]
 const noBtn = document.getElementsByClassName('btn-secondary')[1]
 const continueMsg = document.getElementsByClassName('game-over-message')[0]
+const playerWinScreen = document.getElementsByClassName('win-screen')[0]
+const winMessage = document.getElementsByClassName('h1-win')[0]
+const playAgainBtn = document.getElementsByClassName('fa-redo-alt')[0]
+
+
 
 
 
@@ -35,6 +40,7 @@ let ballCurrentPosition = ballStart;
 startBtn.addEventListener('click', startGame);
 yesBtn.addEventListener('click', resetGame)
 noBtn.addEventListener('click', endGame)
+playAgainBtn.addEventListener('click', resetGame)
 
 // Create Block
 class Block {// Gives positioning on where the blocks are
@@ -71,6 +77,7 @@ const blocks =[
 
 // Start game 
 function startGame() {
+  document.addEventListener('keydown', movePlayer)
   footerContainer.classList.toggle('hide-element')
   moveContainer.classList.toggle('hide-element')
   timerId = setInterval(moveBall, 20)
@@ -98,6 +105,10 @@ function changeGameOverMsg(){
     }
     timeLeft -= 1;
   }
+}
+
+function playerWin(){
+  
 }
 
 function endGame(gameTimer){
@@ -160,7 +171,7 @@ function movePlayer(e){
   }
 }
 
-document.addEventListener('keydown', movePlayer)
+// document.addEventListener('keydown', movePlayer)
 
 
 // Create Ball
@@ -198,9 +209,14 @@ function collisionCheck() {
 
       // Player win
       if(blocks.length === 0){
-        scoreDisplay.innerHTML = 'Win';
         clearInterval(timerId);
         document.removeEventListener('keydown', movePlayer)
+        winMessage.innerHTML = 'You Win!!';
+        scoreDisplay.classList.toggle('hide-element')
+        grid.classList.toggle('hide-element')
+        playerWinScreen.classList.toggle('hide-element')
+        countDownTimer.classList.toggle('hide-element')
+        setTimeout(changeGameOverMsg, 1000)
       }
     }
   }
