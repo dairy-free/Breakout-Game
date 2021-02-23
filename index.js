@@ -13,11 +13,6 @@ const winMessage = document.getElementsByClassName('h1-win')[0]
 const playAgainBtn = document.getElementsByClassName('fa-redo-alt')[0]
 
 
-
-
-
-
-// const resetBtn = document.getElementById('resetBtn');
 const blockWidth = 100;
 const blockHeight = 20;
 const ballDiameter = 20;
@@ -29,7 +24,7 @@ let xDirection = -2;
 let yDirection = 2;
 let score = 0;
 
-// console.log(startBtn, resetBtn)
+
 
 const playerStart = [230, 10]
 let currentPosition = playerStart;
@@ -169,8 +164,6 @@ function movePlayer(e){
   }
 }
 
-// document.addEventListener('keydown', movePlayer)
-
 
 // Create Ball
 const ball = document.createElement('div');
@@ -186,10 +179,8 @@ function moveBall() {
   collisionCheck()
 }
 
-// timerId = setInterval(moveBall, 30)
 
 // Collision Check
-
 function collisionCheck() {
   // block collision check
   for (let i = 0; i < blocks.length; i++){
