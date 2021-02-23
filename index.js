@@ -91,7 +91,9 @@ function changeGameOverMsg(){
   gameOverMsg.innerHTML = 'Continue?'
   let timeLeft = 9;
   let gameTimer = setInterval(gameCountDownTimer,1000);
-
+  countDownTimer.classList.toggle('hide-element')
+  yesBtn.classList.toggle('hide-element')
+  noBtn.classList.toggle('hide-element')
 
   function gameCountDownTimer(){
     if(timeLeft <= 0){
@@ -105,10 +107,6 @@ function changeGameOverMsg(){
     }
     timeLeft -= 1;
   }
-}
-
-function playerWin(){
-  
 }
 
 function endGame(gameTimer){
@@ -211,11 +209,10 @@ function collisionCheck() {
       if(blocks.length === 0){
         clearInterval(timerId);
         document.removeEventListener('keydown', movePlayer)
-        winMessage.innerHTML = 'You Win!!';
+        gameOverMsg.classList.toggle('hide-element')
         scoreDisplay.classList.toggle('hide-element')
         grid.classList.toggle('hide-element')
-        playerWinScreen.classList.toggle('hide-element')
-        countDownTimer.classList.toggle('hide-element')
+        gameOverMsg.innerHTML = 'You Win!!!'
         setTimeout(changeGameOverMsg, 1000)
       }
     }
@@ -243,12 +240,10 @@ function collisionCheck() {
   // Game over Check
   if (ballCurrentPosition[1] <= 0) {
     clearInterval(timerId);
-    scoreDisplay.classList.toggle('hide-element')
-    grid.classList.toggle('hide-element')
     gameOverMsg.classList.toggle('hide-element')
-    countDownTimer.classList.toggle('hide-element')
-    yesBtn.classList.toggle('hide-element')
-    noBtn.classList.toggle('hide-element')
+    grid.classList.toggle('hide-element')
+    scoreDisplay.classList.toggle('hide-element')
+    gameOverMsg.innerHTML = 'You Lose'
     setTimeout(changeGameOverMsg, 1000)
     document.removeEventListener('keydown', movePlayer)
   }
